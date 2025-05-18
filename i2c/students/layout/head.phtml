@@ -1,0 +1,54 @@
+<?php
+    $first = !isset($_COOKIE["first"]);
+    if ($first) {
+        setcookie("first", "true");
+    }
+?>
+
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>atleti</title>
+</head>
+<body>
+    <header>
+        <h1>Aplikace pro evidenci atletu</h1>
+
+        <?php
+            if ($first) {
+        ?>
+            <p>Vítejte na naši stránce pro evidavi atletu</p>
+        <?php
+            }
+        ?>
+
+        <nav>
+            <ul>
+                <li>
+                    <a href="/i2c/students">Domovská stránka</a>
+                </li>
+                <li>
+                    <a href="/i2c/students/list.php">Seznam</a>
+                </li>
+                <li>
+                    <a href="/i2c/students/about-us.php">O nás</a>
+                </li>
+                <?php if (isset($_SESSION["user"])) { ?>
+                    <li><?= $_SESSION["user"]["username"] ?></li>
+                    <li>
+                        <a href="/i2c/students/logout.php">Odhlásit se</a>
+                    </li>
+                <?php } else { ?>
+                    <li>
+                        <a href="/i2c/students/login.php">Přihlásit se</a>
+                    </li>
+                    <li>
+                        <a href="/i2c/students/register.php">Registrovat se</a>
+                    </li>
+                <?php } ?>
+            </ul>
+        </nav>
+    </header>

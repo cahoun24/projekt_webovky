@@ -1,0 +1,16 @@
+<h1>Editace studenta <?= $student["id"] ?></h1>
+
+<form method="POST" enctype="multipart/form-data">
+    <div>
+        <label for="name">Jméno atleta</label>
+        <input type="text" name="name" id="name" required>
+    </div>
+    
+    <div>
+        <label for="country">Zeme</label>
+        <input type="text" name="country" id="country" required>
+    </div>
+        
+
+    <button name="editstudentForm">Upravit studenta</button>
+</form>

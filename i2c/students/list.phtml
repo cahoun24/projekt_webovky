@@ -1,0 +1,45 @@
+<h1>Seznam atletů</h1>
+
+<a href="/i2c/students/new-student.php">Přidat studenta</a>
+
+<table>
+    <tr>
+        <th>Pořadí</th>
+        <th>Jméno</th>
+        <th>Zeme</th>
+        
+    </tr>
+    <?php 
+        foreach ($students as $student) {
+    ?>
+            <tr>
+                <td><?= $student["id"] ?></td>
+                <td><?= $student["name"] ?></td>
+                <td><?= $student["country"] ?></td>
+                <td>
+                    
+                </td>
+                
+                <td>
+                    <form method="GET">
+                        <input 
+                            type="hidden"
+                            name="id"
+                            value="<?= $student["id"] ?>"
+                        >
+                        <button>Upravit</button>
+                    </form>
+                    <form method="POST">
+                        <input 
+                            type="hidden"
+                            name="id"
+                            value="<?= $student["id"] ?>"
+                        >
+                        <button name="deletestudent">Odstranit</button>
+                    </form>
+                </td>
+            </tr>
+    <?php
+        }
+    ?>
+</table>
